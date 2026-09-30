@@ -1,0 +1,2 @@
+
+-DCATKIN_DEVEL_PREFIX=/home/tung/hmi-project/devel -DCMAKE_INSTALL_PREFIX=/home/tung/hmi-project/install -G Unix Makefiles

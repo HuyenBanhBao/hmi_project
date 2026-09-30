@@ -1,0 +1,14 @@
+2026-09-30 15:08:02+0700 [-] Log opened.
+2026-09-30 15:08:02+0700 [-] registered capabilities (classes):
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
+2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
+2026-09-30 15:08:02+0700 [-] /opt/ros/noetic/lib/rosbridge_server/rosbridge_websocket:294: builtins.DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+2026-09-30 15:08:02+0700 [-] WebSocketServerFactory starting on 9090
+2026-09-30 15:08:02+0700 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0xffff74a67eb0>
+2026-09-30 15:08:02+0700 [-] [INFO] [1790755682.764122]: Rosbridge WebSocket server started at ws://0.0.0.0:9090

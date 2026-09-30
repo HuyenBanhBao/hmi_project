@@ -1,0 +1,19 @@
+
+> hmi-project@0.0.0 dev
+> node tools/dev_runner.mjs
+
+[vite] file watching via polling (300ms) to avoid ENOSPC watcher limit
+Local launcher listening on http://127.0.0.1:5051
+Whitelisted apps: rviz
+Offline detail server: http://127.0.0.1:5002
+Buildings: /home/tung/osm_python/hanoi_buildings.gpkg
+POIs: /home/tung/osm_python/hanoi_pois.gpkg
+Drive graph: /home/tung/osm_python/hoankiem_drive.gpkg
+
+  VITE v5.4.21  ready in 747 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported

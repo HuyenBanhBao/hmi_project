@@ -1,0 +1,14 @@
+Unable to register with master node [http://localhost:11311]: master may not be running yet. Will keep trying.
+[INFO] [1790755680.299622]: Dang lay center cho truc X tren channel 0 voi 30 mau. Giu joystick o vi tri giua.
+Traceback (most recent call last):
+  File "/home/tung/hmi-project/src/ros_nodes/ads1115_joystick_node.py", line 376, in <module>
+    Ads1115JoystickNode().spin()
+  File "/home/tung/hmi-project/src/ros_nodes/ads1115_joystick_node.py", line 106, in __init__
+    self.resolve_centers()
+  File "/home/tung/hmi-project/src/ros_nodes/ads1115_joystick_node.py", line 142, in resolve_centers
+    self.x_center = self.calibrate_center(self.x_channel, "X")
+  File "/home/tung/hmi-project/src/ros_nodes/ads1115_joystick_node.py", line 167, in calibrate_center
+    samples.append(self.read_channel(channel))
+  File "/home/tung/hmi-project/src/ros_nodes/ads1115_joystick_node.py", line 185, in read_channel
+    self.bus.write_i2c_block_data(
+OSError: [Errno 121] Remote I/O error
