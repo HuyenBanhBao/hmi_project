@@ -10,10 +10,151 @@ Buildings: /home/tung/osm_python/hanoi_buildings.gpkg
 POIs: /home/tung/osm_python/hanoi_pois.gpkg
 Drive graph: /home/tung/osm_python/hoankiem_drive.gpkg
 
-  VITE v5.4.21  ready in 747 ms
+  VITE v5.4.21  ready in 560 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
 [offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
 [offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
 [offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+2:14:43 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:14:45 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:14:52 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:14:52 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:14:53 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+2:16:33 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:16:33 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:16:39 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:16:39 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:17:19 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:17:20 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:17:20 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:17:20 PM [vite] hmr update /src/Main_page/Main_page.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+2:20:43 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:20:43 PM [vite] hmr update /src/components/RosCameraPanel.jsx
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+2:20:45 PM [vite] ✨ new dependencies optimized: @mui/icons-material/Fullscreen, @mui/icons-material/FullscreenExit
+2:20:45 PM [vite] ✨ optimized dependencies changed. reloading
+2:20:56 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:21:32 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:21:34 PM [vite] hmr update /src/components/RosCameraPanel.jsx
+2:21:43 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:21:46 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:21:49 PM [vite] hmr update /src/Main_page/Main_page.jsx
+2:21:54 PM [vite] hmr update /src/Main_page/Main_page.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+2:27:50 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:27:52 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:27:56 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:27:57 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:28:02 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:28:09 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:28:09 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:28:10 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:28:11 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:31:07 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:35:51 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:36:54 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:36:55 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:36:55 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:37:08 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:37:19 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:37:24 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:37:24 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:11 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:11 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:12 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:12 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:36 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:36 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:37 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:38:46 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:40:29 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:40:30 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:40:30 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+2:41:18 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:19 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:19 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:20 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:26 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:32 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:38 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:42 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:44 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:54 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:54 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:54 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:41:55 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:05 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:09 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:11 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:20 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:20 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+2:42:20 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:04:09 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:04:47 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+3:13:17 PM [vite] hmr update /src/components/RosLaunchGroupControl.jsx
+3:13:17 PM [vite] hmr update /src/components/RosMapLaunchDialog.jsx
+3:14:06 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx, /src/components/RosMapLaunchDialog.jsx
+3:14:07 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:14:07 PM [vite] hmr update /src/components/RosMapLaunchDialog.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+3:17:50 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx, /src/components/RosMapLaunchDialog.jsx
+3:17:50 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx, /src/components/RosMapLaunchDialog.jsx
+3:17:50 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx, /src/components/RosMapLaunchDialog.jsx
+3:17:51 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx, /src/components/RosMapLaunchDialog.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+3:21:41 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:43 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:46 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:48 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:49 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:50 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:56 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:56 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+3:21:56 PM [vite] hmr update /src/components/RosLaunchDrawer.jsx
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr pois: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_pois.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr buildings: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hanoi_buildings.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+[offline-detail] ogr2ogr drive: Warning 1: This version of GeoPackage user_version=0x000028A0 (10400, v1.4.0) on '/home/tung/osm_python/hoankiem_drive.gpkg' may only be partially supported
+3:24:21 PM [vite] hmr update /src/Map/MapView.jsx

@@ -9,6 +9,8 @@ import useRosTopic from "../hooks/useRosTopic";
 import RosImuCard from "./RosImuCard";
 import RosLaunchGroupControl from "./RosLaunchGroupControl";
 import RosMotorTemperatureCard from "./RosMotorTemperatureCard";
+import RosMapLaunchDialog from "./RosMapLaunchDialog";
+import { createMapRequestId, isMapLaunch, MAP_COMMAND_TOPIC } from "./rosMapCommands";
 
 const COMMAND_TOPIC = "/hmi/launch_command";
 const STATUS_TOPIC = "/hmi/launch_status";
@@ -17,22 +19,30 @@ const IMU_TOPIC = "/imu/data_new";
 
 const launchGroups = [
     {
-        id: "cuong",
-        title: "Xe cơ sở",
+        id: "cuong_sensors",
+        title: "Cảm biến và định vị",
         targetMachine: "cuong",
         commands: [
             // { launch: "imu_start_calib", label: "Calib IMU" },
             { launch: "outdoor_waypoint_nav", label: "Khởi động EKF" },
             { launch: "rslidar_start", label: "Khởi động Lidar" },
-            { launch: "aloam_velodyne_HDL_32", label: "Tạo bản đồ SLAM" },
+        ],
+    },
+    {
+        id: "cuong_scenarios",
+        title: "Tác vụ vận hành",
+        targetMachine: "cuong",
+        commands: [
+            { launch: "aloam_velodyne_HDL_32", label: "Quét địa hình" },
             { launch: "save_aloam_2d_map", label: "Lưu bản đồ 2D" },
-            { launch: "warthog_real_amcl_checked", label: "Điều khiển ROBOT" },
-            { launch: "outdoor_waypoint_nav_tracking", label: "Chạy hình vuông" },
-            { launch: "outdoor_waypoint_nav_sim", label: "Chạy bài 2" },
-            { launch: "joy_launch_control_sim", label: "Chạy bài 3" },
+            { launch: "helios_raw_to_map", label: "Chạy môi trường SLAM" },
         ],
     },
 ];
+
+// roslaunch export_2d_map save_aloam_2d_map.launch output_prefix:=/home/cuong/maps/san_A
+// roslaunch rslidar_sdk helios_raw_to_map.launch map_file:=/home/cuong/maps/san_A.yaml
+
 const COMMAND_LABEL_BY_LAUNCH = Object.fromEntries(
     launchGroups.flatMap((group) => group.commands.map((command) => [command.launch, command.label])),
 );
@@ -80,6 +90,7 @@ const RosLaunchDrawer = () => {
     const theme = useTheme();
     const { isConnected, robotConnection, valiConnection } = useRos();
     const publishLaunchCommand = useRosPublisher(COMMAND_TOPIC, "std_msgs/String");
+    const publishMapCommand = useRosPublisher(MAP_COMMAND_TOPIC, "std_msgs/String");
     const launchCommandMessage = useRosTopic(COMMAND_TOPIC, "std_msgs/String");
     const launchStatusMessage = useRosTopic(STATUS_TOPIC, "std_msgs/String");
     const launchSwitchStateMessage = useRosTopic(SWITCH_STATE_TOPIC, "std_msgs/String");
@@ -88,6 +99,7 @@ const RosLaunchDrawer = () => {
     const [activeLaunchGroupId, setActiveLaunchGroupId] = useState(null);
     const [launchStatuses, setLaunchStatuses] = useState({});
     const [launchSwitchStates, setLaunchSwitchStates] = useState({});
+    const [pendingMapCommand, setPendingMapCommand] = useState(null);
     const handledSwitchRequestIdsRef = useRef(new Set());
 
     const deviceConnections = [robotConnection, valiConnection].filter(Boolean);
@@ -100,21 +112,30 @@ const RosLaunchDrawer = () => {
               : theme.hmi.colorError;
 
     const sendCommand = useCallback(
-        ({ targetMachine, launch, label, action, source = "hmi_web" }) => {
-            if (!isConnected) return;
+        ({ targetMachine, launch, label, action, source = "hmi_web", mapName }) => {
+            if (!isConnected) return false;
 
             const payload = {
                 source,
                 target_machine: targetMachine,
                 action,
                 launch,
-                request_id: `${Date.now()}_${targetMachine}_${launch}_${action}`,
+                request_id: createMapRequestId(),
                 timestamp: Date.now(),
+                // Chỉ gửi tên map; phía robot tự tìm đường dẫn file trên máy cuong.
+                // Lưu: map_name -> output_prefix -> <tên>.yaml + <tên>.pgm.
+                // Chạy: map_name -> đường dẫn YAML -> map_file của launch.
+                ...(mapName ? { map_name: mapName } : {}),
             };
 
-            publishLaunchCommand({
-                data: JSON.stringify(payload),
-            });
+            // Hai tác vụ map đi qua /hmi/map_command; các launch khác giữ topic cũ.
+            const publish = isMapLaunch(launch) ? publishMapCommand : publishLaunchCommand;
+            if (
+                !publish({
+                    data: JSON.stringify(payload),
+                })
+            )
+                return false;
 
             setLaunchStatuses((current) => ({
                 ...current,
@@ -125,9 +146,28 @@ const RosLaunchDrawer = () => {
                     receivedAt: Date.now(),
                 },
             }));
+            return payload.request_id;
         },
-        [isConnected, publishLaunchCommand],
+        [isConnected, publishLaunchCommand, publishMapCommand],
     );
+
+    const handleLaunchCommand = useCallback(
+        (command) => {
+            if (isMapLaunch(command.launch) && command.action === "start") {
+                // RUN chỉ mở hộp nhập/chọn map; chưa phát lệnh chạy ở bước này.
+                // Người dùng xác nhận trong hộp thoại mới gọi sendCommand kèm mapName.
+                setPendingMapCommand({ ...command, dialogId: createMapRequestId() });
+                return;
+            }
+            if (isMapLaunch(command.launch)) {
+                setPendingMapCommand((pending) => (pending?.launch === command.launch ? null : pending));
+            }
+            sendCommand(command);
+        },
+        [sendCommand],
+    );
+
+    const closeMapDialog = useCallback(() => setPendingMapCommand(null), []);
 
     const applyLaunchMessage = (rawMessage) => {
         if (!rawMessage?.data) return;
@@ -186,14 +226,14 @@ const RosLaunchDrawer = () => {
         handledSwitchRequestIdsRef.current.add(payload.request_id);
 
         const action = payload.switch_state === "on" || payload.event === "switch_on" ? "start" : "stop";
-        sendCommand({
+        handleLaunchCommand({
             targetMachine: payload.target_machine || commandConfig.targetMachine,
             launch: payload.launch,
             label: commandConfig.label,
             action,
             source: "hmi_switch_proxy",
         });
-    }, [launchSwitchStateMessage, sendCommand]);
+    }, [launchSwitchStateMessage, handleLaunchCommand]);
 
     useEffect(() => {
         if (!launchCommandMessage?.data) return;
@@ -322,6 +362,7 @@ const RosLaunchDrawer = () => {
                             >
                                 {deviceConnections.map((connection) => {
                                     const statusView = getConnectionStatusView(theme, connection);
+                                    // eslint-disable-next-line no-unused-vars
                                     const helperText = connection?.host
                                         ? `${connection.host}:9090`
                                         : connection?.error || "Chưa cấu hình URL";
@@ -408,10 +449,19 @@ const RosLaunchDrawer = () => {
                         launchStatuses={launchStatuses}
                         launchSwitchStates={launchSwitchStates}
                         onClose={closeLaunchGroup}
-                        onSendCommand={sendCommand}
+                        onSendCommand={handleLaunchCommand}
                     />
                 ))}
             </Box>
+            {pendingMapCommand ? (
+                <RosMapLaunchDialog
+                    key={pendingMapCommand.dialogId}
+                    command={pendingMapCommand}
+                    status={launchStatuses[pendingMapCommand.launch]}
+                    onLaunch={sendCommand}
+                    onClose={closeMapDialog}
+                />
+            ) : null}
         </Box>
     );
 };

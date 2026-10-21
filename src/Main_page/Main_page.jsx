@@ -85,6 +85,7 @@ const Main_page = () => {
     const theme = useTheme();
     const { isConnected } = useRos();
     const [requestedJoystickEnabled, setRequestedJoystickEnabled] = useState(null);
+    const [isCameraExpanded, setIsCameraExpanded] = useState(false);
     // const { isConnected, gpsData, hexLog, error, connect, disconnect } = useWebSerial();
     // const [showConnect, setShowConnect] = useState(!isConnected);
     // ============================== ROS TOPICS ==============================
@@ -115,6 +116,19 @@ const Main_page = () => {
         maxAngular: JOYSTICK_MAX_ANGULAR_RADPS,
     });
     const joystickCmdVelData = buildTwistMessage(joystickCmdVel);
+
+    useEffect(() => {
+        if (!isCameraExpanded) return;
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsCameraExpanded(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isCameraExpanded]);
 
     useEffect(() => {
         if (typeof externalJoystickEnabled !== "boolean") {
@@ -393,19 +407,26 @@ const Main_page = () => {
 
                 <Box
                     sx={{
-                        position: "absolute",
                         zIndex: 1300,
+                        display: "flex",
+                        flexDirection: "column",
                         left: { xs: 12, sm: 380 },
                         right: { xs: 12, sm: 450 },
+                        top: isCameraExpanded ? 95 : "auto",
+                        position: "absolute",
                         bottom: 0,
+                        minHeight: 0,
                         pointerEvents: "none",
                     }}
                 >
                     <Box
                         sx={{
                             py: 1,
-                            display: "flex",
                             gap: 1.25,
+                            display: "flex",
+                            flexDirection: isCameraExpanded ? "column" : "row",
+                            flex: 1,
+                            minHeight: 0,
                             flexWrap: "nowrap",
                             maxWidth: "100%",
                             pointerEvents: "auto",
@@ -418,11 +439,15 @@ const Main_page = () => {
                             topicName="/image_nen"
                             messageType="sensor_msgs/CompressedImage"
                             cameraMessage={cameraData}
+                            isExpanded={isCameraExpanded}
+                            onToggleExpand={() => setIsCameraExpanded((expanded) => !expanded)}
                         />
 
                         <Box
                             sx={{
                                 width: "100%",
+                                minWidth: 0,
+                                flex: isCameraExpanded ? "0 0 auto" : "1 1 0",
                                 color: theme.hmi.colorSnowGray,
                                 // bgcolor: alpha(theme.hmi.colorMidnightBlue, 0.96),
                                 backgroundImage: theme.hmi.primaryColorBgGradientSlidebarDark135,

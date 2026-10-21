@@ -1,5 +1,7 @@
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { Box, Typography } from "@mui/material";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
+import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRos } from "../context/RosContext";
@@ -165,6 +167,8 @@ const RosCameraPanel = ({
     topicName,
     messageType = "sensor_msgs/CompressedImage",
     cameraMessage = null,
+    isExpanded = false,
+    onToggleExpand,
 }) => {
     const theme = useTheme();
     const { isConnected } = useRos();
@@ -242,9 +246,12 @@ const RosCameraPanel = ({
                 zIndex: isInline ? "auto" : 1400,
                 left: isInline ? "auto" : "380px",
                 bottom: isInline ? "auto" : 0,
-                width: isInline ? { xs: "100%", sm: 360 } : { xs: "calc(100% - 24px)", sm: 360 },
+                width: isExpanded ? "100%" : isInline ? { xs: "100%", sm: 360 } : { xs: "calc(100% - 24px)", sm: 360 },
                 maxWidth: isInline ? "100%" : "92vw",
-                flex: isInline ? "0 0 auto" : "none",
+                flex: isExpanded ? "1 1 0" : isInline ? "0 0 auto" : "none",
+                minHeight: 0,
+                display: "flex",
+                flexDirection: "column",
                 overflow: "hidden",
                 borderRadius: 2,
                 // bgcolor: alpha(theme.hmi.colorMidnightBlue, 0.96),
@@ -263,6 +270,7 @@ const RosCameraPanel = ({
                     alignItems: "center",
                     justifyContent: "space-between",
                     gap: 1,
+                    flexShrink: 0,
                     borderBottom: `1px solid ${alpha(theme.hmi.colorSnowGray, 0.12)}`,
                 }}
             >
@@ -287,6 +295,9 @@ const RosCameraPanel = ({
 
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, flexShrink: 0 }}>
                     <Box
+                        role="status"
+                        aria-label={statusText}
+                        title={helperText}
                         sx={{
                             width: 9,
                             height: 9,
@@ -296,13 +307,35 @@ const RosCameraPanel = ({
                         }}
                     />
                     {/* <Typography sx={{ color: statusColor, fontSize: 11, fontWeight: 800 }}>{statusText}</Typography> */}
+                    {onToggleExpand ? (
+                        <Tooltip title={isExpanded ? "Thu nhỏ camera (Esc)" : "Phóng to camera lên vùng bản đồ"}>
+                            <IconButton
+                                size="small"
+                                aria-label={isExpanded ? "Thu nhỏ camera" : "Phóng to camera"}
+                                aria-expanded={isExpanded}
+                                onClick={onToggleExpand}
+                                sx={{
+                                    color: theme.hmi.colorBtnOrange,
+                                    bgcolor: alpha(theme.hmi.colorBtnOrange, 0.12),
+                                    "&:hover": {
+                                        bgcolor: alpha(theme.hmi.colorBtnOrange, 0.24),
+                                    },
+                                }}
+                            >
+                                {isExpanded ? <FullscreenExitIcon /> : <FullscreenIcon />}
+                            </IconButton>
+                        </Tooltip>
+                    ) : null}
                 </Box>
             </Box>
 
             <Box
                 sx={{
                     position: "relative",
-                    aspectRatio: "16 / 9",
+                    aspectRatio: isExpanded ? "auto" : "16 / 9",
+                    flex: isExpanded ? 1 : "0 0 auto",
+                    minHeight: 0,
+                    overflow: "hidden",
                     bgcolor: alpha(theme.hmi.colorDeepNavy, 0.76),
                     display: "flex",
                     alignItems: "center",
@@ -317,7 +350,7 @@ const RosCameraPanel = ({
                         sx={{
                             width: "100%",
                             height: "100%",
-                            objectFit: "cover",
+                            objectFit: isExpanded ? "contain" : "cover",
                             display: "block",
                         }}
                     />
@@ -330,6 +363,7 @@ const RosCameraPanel = ({
                         sx={{
                             width: "100%",
                             height: "100%",
+                            objectFit: isExpanded ? "contain" : "fill",
                             display: hasFrame ? "block" : "none",
                         }}
                     />
@@ -379,6 +413,7 @@ const RosCameraPanel = ({
                     alignItems: "center",
                     justifyContent: "space-between",
                     gap: 1,
+                    flexShrink: 0,
                     borderTop: `1px solid ${alpha(theme.hmi.colorSnowGray, 0.08)}`,
                 }}
             >

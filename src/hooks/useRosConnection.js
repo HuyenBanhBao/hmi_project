@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import * as ROSLIB from "roslib";
 
-const DEFAULT_ROSBRIDGE_URLS = ["ws://192.168.1.116:9090", "ws://192.168.1.218:9090"];
+const DEFAULT_ROSBRIDGE_URLS = ["ws://192.168.1.10:9090", "ws://192.168.1.119:9090"];
+// const DEFAULT_ROSBRIDGE_URLS = ["ws://172.20.10.3:9090", "ws://172.20.10.4:9090"];
 // const DEFAULT_ROSBRIDGE_URLS = ["ws://192.168.166.207:9090", "ws://192.168.166.107:9090"];
 const RECONNECT_DELAY_MS = 2000;
 const ROS_DEVICE_CONFIGS = [
     {
         id: "robot",
         label: "ROBOT",
-        hostSuffix: "207",
+        hostSuffix: "10",
     },
     {
         id: "vali",
         label: "VALI",
-        hostSuffix: "218",
+        hostSuffix: "4",
     },
 ];
 

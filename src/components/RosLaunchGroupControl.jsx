@@ -30,8 +30,8 @@ const RUN_BUTTON_SX = {
     },
 };
 
-const START_LIKE_EVENTS = new Set(["switch_on", "pending_start", "started", "already_running"]);
-const STOP_LIKE_EVENTS = new Set(["switch_off", "pending_stop", "stopped", "not_running"]);
+const START_LIKE_EVENTS = new Set(["switch_on", "pending_start", "saving", "started", "already_running"]);
+const STOP_LIKE_EVENTS = new Set(["switch_off", "pending_stop", "stopped", "not_running", "saved"]);
 
 const getLaunchToggleState = (status, switchState = null) => {
     if (typeof switchState?.isOn === "boolean") {
@@ -107,11 +107,28 @@ const getLaunchStatusView = (theme, status) => {
     const statusTime = status.receivedAt
         ? new Date(status.receivedAt).toLocaleTimeString("vi-VN", { hour12: false })
         : "";
+    const mapDetail = status.map_name ? `${status.map_name} · ${statusTime}` : statusTime;
+
+    if (status.event === "saving" || status.event === "saved") {
+        return {
+            label: status.event === "saving" ? "Đang lưu bản đồ" : "Đã lưu bản đồ",
+            detail: mapDetail,
+            color: status.event === "saving" ? theme.hmi.colorBtnOrange : theme.hmi.colorPrimary,
+        };
+    }
+
+    if (status.event === "save_failed" || status.event === "start_failed") {
+        return {
+            label: status.event === "save_failed" ? "Lưu bản đồ thất bại" : "Khởi chạy thất bại",
+            detail: status.message || status.error || mapDetail,
+            color: theme.hmi.colorError,
+        };
+    }
 
     if (status.event === "pending_start") {
         return {
             label: "Đang gửi lệnh chạy",
-            detail: statusTime,
+            detail: mapDetail,
             color: theme.hmi.colorBtnOrange,
         };
     }
@@ -143,7 +160,7 @@ const getLaunchStatusView = (theme, status) => {
     if (status.event === "started" || status.event === "already_running") {
         return {
             label: "Đang chạy",
-            detail: status.pid ? `pid ${status.pid} · ${statusTime}` : statusTime,
+            detail: status.map_name ? mapDetail : status.pid ? `pid ${status.pid} · ${statusTime}` : statusTime,
             color: theme.hmi.colorPrimary,
         };
     }
@@ -169,7 +186,7 @@ const getLaunchStatusView = (theme, status) => {
     if (status.event === "rejected") {
         return {
             label: "Bị từ chối",
-            detail: `${status.reason || "unknown"} · ${statusTime}`,
+            detail: `${status.message || status.reason || "unknown"} · ${statusTime}`,
             color: theme.hmi.colorError,
         };
     }
@@ -195,13 +212,15 @@ const getLaunchGroupSummary = (theme, group, launchStatuses, launchSwitchStates 
         ? activeSwitchCount
         : statusEntries.filter(
               (status) =>
-                  status.event === "switch_on" || status.event === "started" || status.event === "already_running",
+                  status.event === "switch_on" || status.event === "saving"
+                  || status.event === "started" || status.event === "already_running",
           ).length;
     const pendingCount = statusEntries.filter(
         (status) => status.event === "pending_start" || status.event === "pending_stop",
     ).length;
     const errorCount = statusEntries.filter(
-        (status) => status.event === "rejected" || (status.event === "exited" && Number(status.return_code) !== 0),
+        (status) => ["rejected", "save_failed", "start_failed"].includes(status.event)
+            || (status.event === "exited" && Number(status.return_code) !== 0),
     ).length;
     const stoppedCount = hasSwitchState
         ? group.commands.length - activeSwitchCount
@@ -247,8 +266,8 @@ const getLaunchGroupSummary = (theme, group, launchStatuses, launchSwitchStates 
 
     return {
         color: theme.hmi.colorAshGray,
-        label: "Bấm để mở",
-        detail: `${group.commands.length} launch khả dụng`,
+        // label: "Bấm để mở",
+        // detail: `${group.commands.length} launch khả dụng`,
         runningCount,
     };
 };
@@ -434,9 +453,9 @@ const RosLaunchGroupControl = ({
 
                         <Box sx={{ minWidth: 0 }}>
                             <Typography sx={{ fontSize: 16, fontWeight: 800 }}>{group.title}</Typography>
-                            <Typography sx={{ color: alpha(theme.hmi.colorSnowGray, 0.64), fontSize: 12 }}>
+                            {/* <Typography sx={{ color: alpha(theme.hmi.colorSnowGray, 0.64), fontSize: 12 }}>
                                 Danh sách launch điều khiển robot
-                            </Typography>
+                            </Typography> */}
                         </Box>
                     </Box>
 
@@ -463,7 +482,7 @@ const RosLaunchGroupControl = ({
                         borderBottom: `1px solid ${alpha(theme.hmi.colorSnowGray, 0.08)}`,
                     }}
                 >
-                    <Box
+                    {/* <Box
                         sx={{
                             px: 1,
                             py: 0.55,
@@ -476,8 +495,8 @@ const RosLaunchGroupControl = ({
                         }}
                     >
                         {summary.label}
-                    </Box>
-                    <Box
+                    </Box> */}
+                    {/* <Box
                         sx={{
                             px: 1,
                             py: 0.55,
@@ -489,7 +508,7 @@ const RosLaunchGroupControl = ({
                         }}
                     >
                         {summary.runningCount}/{group.commands.length} đang chạy
-                    </Box>
+                    </Box> */}
                 </Box>
 
                 <Box
@@ -620,6 +639,7 @@ const RosLaunchGroupControl = ({
                                             {launchStatusView.label}
                                         </Typography>
                                         <Typography
+                                            title={launchStatusView.detail}
                                             sx={{
                                                 color: alpha(theme.hmi.colorSnowGray, 0.62),
                                                 fontSize: 11,

@@ -1,0 +1,7 @@
+[2026-10-01 11:33:28] ROS master: http://192.168.1.114:11311; ROS_IP: 192.168.1.114
+[2026-10-01 11:33:29] TileServer already running.
+[2026-10-01 11:33:29] router already running; keeping existing process.
+[2026-10-01 11:33:29] frontend already running; keeping existing process.
+[2026-10-01 11:33:29] Starting rosbridge; log: /home/tung/hmi-project/logs/rosbridge.log
+[2026-10-01 11:33:32] Starting joystick; log: /home/tung/hmi-project/logs/ads1115_joystick.log
+[2026-10-01 11:33:34] ERROR: Joystick exited; see /home/tung/hmi-project/logs/ads1115_joystick.log

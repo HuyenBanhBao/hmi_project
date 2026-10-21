@@ -2,6 +2,33 @@
 
 ## Run
 
+On the HMI machine, the Desktop Run/Stop shortcuts use the shared launcher:
+
+```bash
+bash tools/hmi_offline.sh start
+bash tools/hmi_offline.sh stop
+```
+
+Run reuses existing services, resumes suspended HMI processes, and writes progress
+and errors to `logs/hmi_offline.log`. Stop terminates only matching services run by
+the current user from this project, including Vite's launcher and detail server.
+The TileServer container is stopped and reused on the next Run.
+
+The ROS master and ROS IP default to this machine at `192.168.1.114`. To use another
+network configuration, set `HMI_ROS_MASTER_URI` and `HMI_ROS_IP` when running the
+launcher. Interactive `.bashrc` ROS settings do not override these defaults.
+Service logs remain in `logs/`; Run appends to them so startup errors are retained.
+A disconnected/failing ADS1115 joystick is reported as a warning while the web
+interface and ROS bridge remain available; Run retries the joystick next time.
+
+Run also repairs executable permissions for esbuild and catkin setup helpers if a
+copied/checked-out dependency tree has lost them. Changing a Git remote alone does
+not change runtime behavior, but executable files committed as `100644` lose their
+execute permission on checkout. Dependencies and catkin build output should
+normally be installed/rebuilt on the target machine instead of copied via Git.
+
+To run the map services individually:
+
 Terminal 1: offline tileserver
 
 ```bash

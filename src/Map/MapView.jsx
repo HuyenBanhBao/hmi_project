@@ -90,7 +90,7 @@ const DEFAULT_OFFLINE_TILE_URL =
     import.meta.env.VITE_OFFLINE_TILE_URL || "http://127.0.0.1:8080/styles/basic-preview/{z}/{x}/{y}.png";
 const DEFAULT_OFFLINE_TILE_DESCRIPTION =
     import.meta.env.VITE_OFFLINE_TILE_DESCRIPTION || "Local TileServer GL from vietnam.mbtiles";
-const DEFAULT_MAP_LAYER_ID = "osm-offline";
+const DEFAULT_MAP_LAYER_ID = "osm-online";
 
 const MAP_LAYER_OPTIONS = [
     {

@@ -1,14 +1,72 @@
-2026-09-30 15:08:02+0700 [-] Log opened.
-2026-09-30 15:08:02+0700 [-] registered capabilities (classes):
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
-2026-09-30 15:08:02+0700 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
-2026-09-30 15:08:02+0700 [-] /opt/ros/noetic/lib/rosbridge_server/rosbridge_websocket:294: builtins.DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
-2026-09-30 15:08:02+0700 [-] WebSocketServerFactory starting on 9090
-2026-09-30 15:08:02+0700 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0xffff74a67eb0>
-2026-09-30 15:08:02+0700 [-] [INFO] [1790755682.764122]: Rosbridge WebSocket server started at ws://0.0.0.0:9090
+2026-10-19 14:07:34+0700 [-] Log opened.
+2026-10-19 14:07:34+0700 [-] registered capabilities (classes):
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
+2026-10-19 14:07:34+0700 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
+2026-10-19 14:07:34+0700 [-] /opt/ros/noetic/lib/rosbridge_server/rosbridge_websocket:294: builtins.DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+2026-10-19 14:07:34+0700 [-] WebSocketServerFactory starting on 9090
+2026-10-19 14:07:34+0700 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0xffff9c3a3100>
+2026-10-19 14:07:34+0700 [-] [INFO] [1792393654.909399]: Rosbridge WebSocket server started at ws://0.0.0.0:9090
+[INFO] [1792393654.052790]: Rosapi started
+2026-10-19 15:37:40+0700 [autobahn.twisted.websocket.WebSocketServerFactory] (TCP Port 9090 Closed)
+2026-10-19 15:37:40+0700 [-] Stopping factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0xffff9c3a3100>
+2026-10-19 15:37:40+0700 [-] Main loop terminated.
+... logging to /home/tung/.ros/log/c074d30c-cb8b-11f1-b882-b48c9d1d49bd/roslaunch-slave-9519.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/noetic/share/rosbridge_server/launch/rosbridge_websocket.launch
+[1mstarted roslaunch server http://slave:34145/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosapi/params_glob: [*]
+ * /rosapi/services_glob: [*]
+ * /rosapi/topics_glob: [*]
+ * /rosbridge_websocket/address: 0.0.0.0
+ * /rosbridge_websocket/authenticate: False
+ * /rosbridge_websocket/bson_only_mode: False
+ * /rosbridge_websocket/delay_between_messages: 0
+ * /rosbridge_websocket/fragment_timeout: 600
+ * /rosbridge_websocket/max_message_size: None
+ * /rosbridge_websocket/params_glob: [*]
+ * /rosbridge_websocket/port: 9090
+ * /rosbridge_websocket/retry_startup_delay: 5
+ * /rosbridge_websocket/services_glob: [*]
+ * /rosbridge_websocket/topics_glob: [*]
+ * /rosbridge_websocket/unregister_timeout: 10
+ * /rosbridge_websocket/use_compression: False
+ * /rosbridge_websocket/websocket_external_port: None
+ * /rosbridge_websocket/websocket_ping_interval: 0
+ * /rosbridge_websocket/websocket_ping_timeout: 30
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+  /
+    rosapi (rosapi/rosapi_node)
+    rosbridge_websocket (rosbridge_server/rosbridge_websocket)
+
+auto-starting new master
+[1mprocess[master]: started with pid [9748][0m
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/opt/ros/noetic/share/rosbridge_server/launch/rosbridge_websocket.launch http://localhost:11311
+[1msetting /run_id to c074d30c-cb8b-11f1-b882-b48c9d1d49bd[0m
+[1mprocess[rosout-1]: started with pid [9767][0m
+started core service [/rosout]
+[1mprocess[rosbridge_websocket-2]: started with pid [9774][0m
+[1mprocess[rosapi-3]: started with pid [9776][0m
+[rosapi-3] killing on exit
+[rosbridge_websocket-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
